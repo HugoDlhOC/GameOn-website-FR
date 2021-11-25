@@ -47,7 +47,7 @@
         <div class="hero-img">
           <img src="./bg_img.jpg" alt="img" />
         </div>
-        <button class="btn-signup modal-btn">
+        <button class="btn-signup modal-btn">   <!--Double bouton ?-->
           je m'inscris
         </button>
       </div>
@@ -57,6 +57,7 @@
           <span class="close"></span>
           <div class="modal-body">
             <form
+              id="form"
               name="reserve"
               action="index.html"
               method="get"
@@ -64,56 +65,61 @@
             >
               <div
                 class="formData">
-                <label>Prénom</label><br>
+                <label for="firstname">Prénom</label><br>
                 <input
                   class="text-control"
                   type="text"
-                  id="first"
+                  id="firstname"
                   name="first"
                   minlength="2"
                 /><br>
+                <p id="error_message_firstname" class="error_message">Veuillez entrer 2 caractères ou plus pour le champs du prénom.</p>
               </div>
               <div
                 class="formData">
-                <label>Nom</label><br>
+                <label for="lastname">Nom</label><br>
                 <input
                   class="text-control"
                   type="text"
-                  id="last"
+                  id="lastname"
                   name="last"
                 /><br>
+                <p id="error_message_lastname" class="error_message">Veuillez entrer 2 caractères ou plus pour le champs du nom.</p>
               </div>
               <div
                 class="formData">
-                <label>E-mail</label><br>
+                <label for="email">E-mail</label><br>
                 <input
                   class="text-control"
                   type="email"
                   id="email"
                   name="email"
                 /><br>
+                <p id="error_message_email" class="error_message">Veuillez saisir une adresse mail valide.</p>
               </div>
               <div
                 class="formData">
-                <label>Date de naissance</label><br>
+                <label for="birthdate">Date de naissance</label><br>
                 <input
                   class="text-control"
                   type="date"
                   id="birthdate"
                   name="birthdate"
                 /><br>
+                <p class="error_message">Veuillez saisir votre date de naissance.</p>
               </div>
               <div
                 class="formData">
-                <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
+                <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+                <p id="error_message_tournament" class="error_message">Veuillez inscrire une valeur.</p>
               </div>
               <p class="text-label">Quelles villes ?</p>
               <div
                 class="formData">
                 <input
                   class="checkbox-input"
-                  type="radio"
+                  type="checkbox"
                   id="location1"
                   name="location"
                   value="New York"
@@ -124,7 +130,7 @@
                 >
                 <input
                   class="checkbox-input"
-                  type="radio"
+                  type="checkbox"
                   id="location2"
                   name="location"
                   value="San Francisco"
@@ -135,7 +141,7 @@
                 >
                 <input
                   class="checkbox-input"
-                  type="radio"
+                  type="checkbox"
                   id="location3"
                   name="location"
                   value="Seattle"
@@ -146,7 +152,7 @@
                 >
                 <input
                   class="checkbox-input"
-                  type="radio"
+                  type="checkbox"
                   id="location4"
                   name="location"
                   value="Chicago"
@@ -157,7 +163,7 @@
                 >
                 <input
                   class="checkbox-input"
-                  type="radio"
+                  type="checkbox"
                   id="location5"
                   name="location"
                   value="Boston"
@@ -168,7 +174,7 @@
                 >
                 <input
                   class="checkbox-input"
-                  type="radio"
+                  type="checkbox"
                   id="location6"
                   name="location"
                   value="Portland"
@@ -177,6 +183,7 @@
                   <span class="checkbox-icon"></span>
                   Portland</label
                 >
+                <p id="error_message_cities" class="error_message">Veuillez sélectionner au moins une ville.</p>
               </div>
 
               <div
@@ -184,18 +191,19 @@
                 <input
                   class="checkbox-input"
                   type="checkbox"
-                  id="checkbox1"
-                  checked
-                />
-                <label class="checkbox2-label" for="checkbox1" required>
+                  id="termsAndConditions"
+                  checked 
+                />  <!--Check de base-->
+                <label class="checkbox2-label" for="termsAndConditions" required> <!--REQUIRED ?-->
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
-                <br>
+                <p id="error_message_terms" class="error_message">Veuillez accepter les conditions d'utilisation.</p>
+                <!--<br>-->
                 <input class="checkbox-input" type="checkbox" id="checkbox2" />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
-                  Je Je souhaite être prévenu des prochains évènements.
+                  Je souhaite être prévenu des prochains évènements.
                 </label>
                 <br>
               </div>

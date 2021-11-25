@@ -463,6 +463,14 @@ input[data-error]::after {
   display: block;
   padding: 0;
 }
+
+.error_message{
+  color: red;
+  font-size: 12px;
+  /*visibility: hidden; /*Messages cachés, mais garde l'espace*/
+  display: none;
+}
+
 .copyrights {
   color: #fe142f;
   padding: 0;
