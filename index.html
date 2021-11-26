@@ -106,7 +106,7 @@
                   id="birthdate"
                   name="birthdate"
                 /><br>
-                <p class="error_message">Veuillez saisir votre date de naissance.</p>
+                <p id="error_message_birthdate" class="error_message">Veuillez saisir votre date de naissance.</p>
               </div>
               <div
                 class="formData">
@@ -208,13 +208,23 @@
                 <br>
               </div>
               <input
-                class="btn-submit"
+                id="btn-submit"
                 type="submit"
                 class="button"
                 value="C'est parti"
               />
             </form>
           </div>
+        </div>
+      </div>
+
+      <div id="modalValid-container" class="modalValid-container">
+        <div class="modalValid">
+          <h1>Merci !</h1>
+          <p>Votre réservation a été reçue.</p>
+          <button id="modalValid-close">
+            Fermer
+          </button>
         </div>
       </div>
     </main>
