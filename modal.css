@@ -111,6 +111,7 @@ img {
   .header-logo img{
     width: 200px;
   }
+  
   .topnav a {display: none;}
   .topnav a.icon {
     float: right;
@@ -573,7 +574,7 @@ footer {
   .hero-content {
     background: #fff;
     color: #000;
-    padding: 20px;
+    padding: 0px;
   }
   .hero-content::after {
     content: unset;
@@ -582,7 +583,7 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
+    font-size: 3.2rem;
     white-space: normal;
   }
   .hero-text {
