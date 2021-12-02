@@ -39,7 +39,13 @@ img {
 }
 .main-navbar {
     float: right;
+    z-index: 5;
 }
+
+.main-navbar .fa{
+  font-size: 35px;
+}
+
 .topnav a {
   float: left;
   display: block;
@@ -69,6 +75,9 @@ img {
 }
 
 @media screen and (max-width: 768px) {
+  .topnav{
+    margin: 7.5%;
+  }
   .topnav a {display: none;}
   .topnav a.icon {
     float: right;
@@ -90,9 +99,18 @@ img {
   }
 }
 
+@media screen and (min-width: 768px) {
+  .header-logo img{
+    margin-bottom: 40px;
+  }
+}
+
 
 
  @media screen and (max-width: 540px) {
+  .header-logo img{
+    width: 200px;
+  }
   .topnav a {display: none;}
   .topnav a.icon {
     float: right;
@@ -413,7 +431,6 @@ input[data-error]::after {
   font-size: 16px;
 }
 .hero-section {
-  min-height: 93vh;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -454,13 +471,18 @@ input[data-error]::after {
   margin-top: 57px;
   padding: 0;
 }
+
+.hero-text p{
+  font-size: 25px;
+}
+
 .btn-signup {
   outline: none;
   text-transform: capitalize;
   font-size: 1.3rem;
   padding: 15px 23px;
   margin: 0;
-  margin-top: 59px;
+  margin-top: 90px;
 }
 .hero-img {
   grid-column: span 8;
@@ -470,6 +492,7 @@ input[data-error]::after {
   height: 100%;
   display: block;
   padding: 0;
+  object-fit: cover;
 }
 
 .error_message{
@@ -534,10 +557,19 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
+
+@media(max-width: 1024px) and (min-width: 800px){
+
+  .hero-headline{
+    font-size: 5rem;
+  }
+}
+
 @media screen and (max-width: 800px) {
   .hero-section {
     display: block;
     box-shadow: unset;
+    margin-bottom: -30px;
   }
   .hero-content {
     background: #fff;
@@ -582,4 +614,3 @@ footer {
     opacity: 1;
   }
 }
-

@@ -10,7 +10,6 @@ function editNav() {
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
-const formData = document.querySelectorAll(".formData");
 
 const closeForm = document.querySelectorAll(".close");
 
@@ -24,12 +23,14 @@ closeForm.forEach((close_btn) => close_btn.addEventListener("click", closeModal)
 //document.querySelectorAll(".close").forEach((close_btn) => close_btn.addEventListener("click", closeModal));
 
 //close final modal event
-var flag = false;
+//var flag = false;
 document.getElementById("btn_close_submit").addEventListener("click", function() {
-  flag = true;
+  //flag = true;
   closeModal();
-  form.submit();
-});  //WTF
+  //form.submit();
+  location.reload();
+
+});
 
 // launch modal form
 function launchModal() {
@@ -39,6 +40,7 @@ function launchModal() {
 //close modal form
 function closeModal(){
   modalbg.style.display = "none";
+  location.reload();
 }
 
 
@@ -214,11 +216,12 @@ function checkInputs(){
   return retourFct;
 }
 
+/*
 function envoi(){
   if(flag === true){
     form.submit();
   }
-}
+}*/
 
 //Controle envoi formulaire
 form.addEventListener("submit", (e) => {
