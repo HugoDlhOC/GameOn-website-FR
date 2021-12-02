@@ -40,7 +40,7 @@
             Vous aimez jouer ? Notre prochain évènement gaming est ouvert
             aux réservations... Places limitées !
           </p>
-          <button class="btn-signup modal-btn">
+          <button class="btn btn-signup modal-btn">
             je m'inscris
           </button>
         </div>
@@ -56,6 +56,9 @@
         <div class="content">
           <span class="close"></span>
           <div class="modal-body">
+            <div id="validation_message">
+              <p>Thank you for submitting your registration details</p>
+            </div>
             <form
               id="form"
               name="reserve"
@@ -63,156 +66,164 @@
               method="get"
               onsubmit="return validate();"
             >
-              <div
-                class="formData">
-                <label for="firstname">Prénom</label><br>
-                <input
-                  class="text-control"
-                  type="text"
-                  id="firstname"
-                  name="first"
-                  minlength="2"
-                /><br>
-                <p id="error_message_firstname" class="error_message">Veuillez entrer 2 caractères ou plus pour le champs du prénom.</p>
-              </div>
-              <div
-                class="formData">
-                <label for="lastname">Nom</label><br>
-                <input
-                  class="text-control"
-                  type="text"
-                  id="lastname"
-                  name="last"
-                /><br>
-                <p id="error_message_lastname" class="error_message">Veuillez entrer 2 caractères ou plus pour le champs du nom.</p>
-              </div>
-              <div
-                class="formData">
-                <label for="email">E-mail</label><br>
-                <input
-                  class="text-control"
-                  type="email"
-                  id="email"
-                  name="email"
-                /><br>
-                <p id="error_message_email" class="error_message">Veuillez saisir une adresse mail valide.</p>
-              </div>
-              <div
-                class="formData">
-                <label for="birthdate">Date de naissance</label><br>
-                <input
-                  class="text-control"
-                  type="date"
-                  id="birthdate"
-                  name="birthdate"
-                /><br>
-                <p id="error_message_birthdate" class="error_message">Veuillez saisir votre date de naissance.</p>
-              </div>
-              <div
-                class="formData">
-                <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
-                <p id="error_message_tournament" class="error_message">Veuillez inscrire une valeur.</p>
-              </div>
-              <p class="text-label">Quelles villes ?</p>
-              <div
-                class="formData">
-                <input
-                  class="checkbox-input"
-                  type="checkbox"
-                  id="location1"
-                  name="location"
-                  value="New York"
-                />
-                <label class="checkbox-label" for="location1">
-                  <span class="checkbox-icon"></span>
-                  New York</label
-                >
-                <input
-                  class="checkbox-input"
-                  type="checkbox"
-                  id="location2"
-                  name="location"
-                  value="San Francisco"
-                />
-                <label class="checkbox-label" for="location2">
-                  <span class="checkbox-icon"></span>
-                  San Francisco</label
-                >
-                <input
-                  class="checkbox-input"
-                  type="checkbox"
-                  id="location3"
-                  name="location"
-                  value="Seattle"
-                />
-                <label class="checkbox-label" for="location3">
-                  <span class="checkbox-icon"></span>
-                  Seattle</label
-                >
-                <input
-                  class="checkbox-input"
-                  type="checkbox"
-                  id="location4"
-                  name="location"
-                  value="Chicago"
-                />
-                <label class="checkbox-label" for="location4">
-                  <span class="checkbox-icon"></span>
-                  Chicago</label
-                >
-                <input
-                  class="checkbox-input"
-                  type="checkbox"
-                  id="location5"
-                  name="location"
-                  value="Boston"
-                />
-                <label class="checkbox-label" for="location5">
-                  <span class="checkbox-icon"></span>
-                  Boston</label
-                >
-                <input
-                  class="checkbox-input"
-                  type="checkbox"
-                  id="location6"
-                  name="location"
-                  value="Portland"
-                />
-                <label class="checkbox-label" for="location6">
-                  <span class="checkbox-icon"></span>
-                  Portland</label
-                >
-                <p id="error_message_cities" class="error_message">Veuillez sélectionner au moins une ville.</p>
-              </div>
+              <div id="form_without_button">
+                <div
+                  class="formData">
+                  <label for="firstname">Prénom</label><br>
+                  <input
+                    class="text-control"
+                    type="text"
+                    id="firstname"
+                    name="first"
+                    minlength="2"
+                  /><br>
+                  <p id="error_message_firstname" class="error_message">Veuillez entrer 2 caractères ou plus pour le champs du prénom.</p>
+                </div>
+                <div
+                  class="formData">
+                  <label for="lastname">Nom</label><br>
+                  <input
+                    class="text-control"
+                    type="text"
+                    id="lastname"
+                    name="last"
+                  /><br>
+                  <p id="error_message_lastname" class="error_message">Veuillez entrer 2 caractères ou plus pour le champs du nom.</p>
+                </div>
+                <div
+                  class="formData">
+                  <label for="email">E-mail</label><br>
+                  <input
+                    class="text-control"
+                    type="email"
+                    id="email"
+                    name="email"
+                  /><br>
+                  <p id="error_message_email" class="error_message">Veuillez saisir une adresse mail valide.</p>
+                </div>
+                <div
+                  class="formData">
+                  <label for="birthdate">Date de naissance</label><br>
+                  <input
+                    class="text-control"
+                    type="date"
+                    id="birthdate"
+                    name="birthdate"
+                  /><br>
+                  <p id="error_message_birthdate" class="error_message">Veuillez saisir votre date de naissance.</p>
+                </div>
+                <div
+                  class="formData">
+                  <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
+                  <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+                  <p id="error_message_tournament" class="error_message">Veuillez inscrire une valeur.</p>
+                </div>
+                <p class="text-label">Quelles villes ?</p>
+                <div
+                  class="formData">
+                  <input
+                    class="checkbox-input"
+                    type="radio"
+                    id="location1"
+                    name="location"
+                    value="New York"
+                  />
+                  <label class="checkbox-label" for="location1">
+                    <span class="checkbox-icon"></span>
+                    New York</label
+                  >
+                  <input
+                    class="checkbox-input"
+                    type="radio"
+                    id="location2"
+                    name="location"
+                    value="San Francisco"
+                  />
+                  <label class="checkbox-label" for="location2">
+                    <span class="checkbox-icon"></span>
+                    San Francisco</label
+                  >
+                  <input
+                    class="checkbox-input"
+                    type="radio"
+                    id="location3"
+                    name="location"
+                    value="Seattle"
+                  />
+                  <label class="checkbox-label" for="location3">
+                    <span class="checkbox-icon"></span>
+                    Seattle</label
+                  >
+                  <input
+                    class="checkbox-input"
+                    type="radio"
+                    id="location4"
+                    name="location"
+                    value="Chicago"
+                  />
+                  <label class="checkbox-label" for="location4">
+                    <span class="checkbox-icon"></span>
+                    Chicago</label
+                  >
+                  <input
+                    class="checkbox-input"
+                    type="radio"
+                    id="location5"
+                    name="location"
+                    value="Boston"
+                  />
+                  <label class="checkbox-label" for="location5">
+                    <span class="checkbox-icon"></span>
+                    Boston</label
+                  >
+                  <input
+                    class="checkbox-input"
+                    type="radio"
+                    id="location6"
+                    name="location"
+                    value="Portland"
+                  />
+                  <label class="checkbox-label" for="location6">
+                    <span class="checkbox-icon"></span>
+                    Portland</label
+                  >
+                  <p id="error_message_cities" class="error_message">Veuillez sélectionner au moins une ville.</p>
+                </div>
 
-              <div
-                class="formData">
-                <input
-                  class="checkbox-input"
-                  type="checkbox"
-                  id="termsAndConditions"
-                  checked 
-                />  <!--Check de base-->
-                <label class="checkbox2-label" for="termsAndConditions" required> <!--REQUIRED ?-->
-                  <span class="checkbox-icon"></span>
-                  J'ai lu et accepté les conditions d'utilisation.
-                </label>
-                <p id="error_message_terms" class="error_message">Veuillez accepter les conditions d'utilisation.</p>
-                <!--<br>-->
-                <input class="checkbox-input" type="checkbox" id="checkbox2" />
-                <label class="checkbox2-label" for="checkbox2">
-                  <span class="checkbox-icon"></span>
-                  Je souhaite être prévenu des prochains évènements.
-                </label>
-                <br>
+                <div
+                  class="formData">
+                  <input
+                    class="checkbox-input"
+                    type="checkbox"
+                    id="termsAndConditions"
+                    checked 
+                  />  <!--Check de base-->
+                  <label class="checkbox2-label" for="termsAndConditions" required> <!--REQUIRED ?-->
+                    <span class="checkbox-icon"></span>
+                    J'ai lu et accepté les conditions d'utilisation.
+                  </label>
+                  <p id="error_message_terms" class="error_message">Veuillez accepter les conditions d'utilisation.</p>
+                  <!--<br>-->
+                  <input class="checkbox-input" type="checkbox" id="checkbox2" />
+                  <label class="checkbox2-label" for="checkbox2">
+                    <span class="checkbox-icon"></span>
+                    Je souhaite être prévenu des prochains évènements.
+                  </label>
+                  <br>
+                </div>
               </div>
               <input
                 id="btn-submit"
                 type="submit"
-                class="button"
+                class="btn"
                 value="C'est parti"
               />
+              <button
+                id="btn_close_submit"
+                class="btn"
+              >Close
+              </button>
+              </form>
             </form>
           </div>
         </div>

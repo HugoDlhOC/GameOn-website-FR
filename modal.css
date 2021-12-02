@@ -186,6 +186,11 @@ main {
 .modal-body {
   padding: 15px 8%;
   margin: 15px auto;
+
+}
+
+.modal-body #validation_message{
+  display: none;
 }
 
 label {
@@ -321,8 +326,8 @@ input[data-error]::after {
 .close:after {
   transform: rotate(-45deg);
 }
-#btn-submit,
-.btn-signup {
+
+.btn {
   background: #fe142f;
   display: block;
   margin: 0 auto;
@@ -332,6 +337,9 @@ input[data-error]::after {
   color: #fff;
   cursor: pointer;
   border: 0;
+}
+#btn_close_submit{
+  display: none;
 }
 /* custom select styles */
 .custom-select {
@@ -471,6 +479,12 @@ input[data-error]::after {
   display: none;
 }
 
+#validation_message p{
+  padding: 260px 60px;
+  text-align: center;
+  font-weight: normal;
+  font-size: 30px;
+}
 /*Message validation formulaire*/
 .modalValid-container{
   /*display: none;*/

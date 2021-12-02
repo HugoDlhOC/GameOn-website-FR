@@ -23,6 +23,14 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));  //Permet
 closeForm.forEach((close_btn) => close_btn.addEventListener("click", closeModal));
 //document.querySelectorAll(".close").forEach((close_btn) => close_btn.addEventListener("click", closeModal));
 
+//close final modal event
+var flag = false;
+document.getElementById("btn_close_submit").addEventListener("click", function() {
+  flag = true;
+  closeModal();
+  form.submit();
+});  //WTF
+
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
@@ -32,6 +40,8 @@ function launchModal() {
 function closeModal(){
   modalbg.style.display = "none";
 }
+
+
 
 //POPUP
 const submitBtn = document.getElementById("btn-submit");
@@ -46,6 +56,7 @@ closeBtn.addEventListener("click", () => {
 
 //Controle input formulaire
 const form = document.getElementById("form");
+const input = document.querySelectorAll("input");
 const firstname = document.getElementById("firstname");
 const lastname = document.getElementById("lastname");
 const email = document.getElementById("email");
@@ -55,78 +66,87 @@ const cities = document.getElementsByName("location");
 const termsAndConditions = document.getElementById("termsAndConditions");
 
 function checkMail(mail){
-  var content = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+  var content = /^[^ ]+@[^ ]+\.[a-z]/;
   return content.test(mail); //Test retourne boolean
 }
 
-function checkInputs() {
+function validInput (domElement, errorName, isValid){
+	if(isValid === false){
+		document.getElementById(errorName).style.display="block";
+		domElement.style.border = "2px red solid";
+	}
+	else{
+		document.getElementById(errorName).style.display="none";
+		domElement.style.border = "2px green solid";
+	}
+}
+
+//----------FONCTIONS VERFIF INPUTS----------//
+//PRENOM
+function checkFirstName(){
   const firstnameValue = firstname.value.trim();  //TRIM permet d'ignorer si des espaces sont saisis par l'utilisateur, ils ne sont pas comptés comme caractères
+  if(firstnameValue === "" || firstnameValue.length < 2){
+    validInput(firstname, "error_message_firstname", false);
+    return -1;
+  }
+  else{
+    validInput(firstname, "error_message_firstname", true);
+  }
+}
+
+//NOM
+function checkLastName(){
   const lastnameValue = lastname.value.trim();
+  if(lastnameValue === "" || lastnameValue.length < 2){
+    validInput(lastname, "error_message_lastname", false);
+    return -1;
+  }
+  else{
+    validInput(lastname, "error_message_lastname", true);
+  }
+}
+
+//MAIL
+function checkMailAdress(){
   const emailValue = email.value;
-  const birthdateValue = birthdate.value;
-  const tournamentValue = tournament.value.trim();
-
-  //Prenom
-  if(firstnameValue === "" | firstnameValue.length < 2){
-    document.getElementById("error_message_firstname").style.display="block";
-    firstname.style.border = "2px red solid";
-    return -1;
-  }
-  else{ //Si l'utilisateur valide de nouveau le formulaire et que le champ prénom est désormais correct, alors je cache le message d'erreur
-    document.getElementById("error_message_firstname").style.display="none";
-    firstname.style.border = "2px green solid";
-  }
-
-  //Nom
-  if(lastnameValue === "" | lastnameValue.length < 2){
-    document.getElementById("error_message_lastname").style.display="block";
-    lastname.style.border = "2px red solid";
-    return -1;
-  }
-  else{
-    document.getElementById("error_message_lastname").style.display="none";
-    lastname.style.border = "2px green solid";
-  }
-
-  //Mail
   if(!checkMail(emailValue)){
-    document.getElementById("error_message_email").style.display="block";
-    email.style.border = "2px red solid";
+    validInput(email, "error_message_email", false);
     return -1;
   }
   else{
-    document.getElementById("error_message_email").style.display="none";
-    email.style.border = "2px green solid";
+    validInput(email, "error_message_email", true);
   }
+}
 
-  //Date de naissance
+//BIRTHDATE
+function checkBirthdate(){
+  const birthdateValue = birthdate.value;
   if(birthdateValue === ""){
-    document.getElementById("error_message_birthdate").style.display="block";
-    birthdate.style.border = "2px red solid";
+    validInput(birthdate, "error_message_birthdate", false);
     return -1;
   }
   else{
-    document.getElementById("error_message_birthdate").style.display="none";
-    birthdate.style.border = "2px green solid";
+    validInput(birthdate, "error_message_birthdate", true);
   }
-
-
-  //Tournois/Concours - Villes
-  if(tournamentValue === ""){
-    document.getElementById("error_message_tournament").style.display="block";
-    tournament.style.border = "2px red solid";
+}
+//TOURNAMENTVALUE
+function checkTournamentValue(){
+  const tournamentValue = tournament.value.trim();
+  if(tournamentValue === "" || tournamentValue < 0){
+    validInput(tournament, "error_message_tournament", false);
     return -1;
   }
   else{
-    document.getElementById("error_message_tournament").style.display="none";
-    tournament.style.border = "2px green solid";
+    validInput(tournament, "error_message_tournament", true);
   }
-
-  //Sélection d'au moins un bouton !
+}
+//AU MOINS UNE VILLE SELECTIONNÉE
+function checkCities(){
+  const tournamentValue = tournament.value.trim();
   var j = 0;
   var resultLoop = 0;
 
-  if(tournamentValue > 0 & j === 0){
+  if(tournamentValue > 0 && j === 0){
     for(var i = 0; i<cities.length; i++){
       if(cities[i].checked === false){
         document.getElementById("error_message_cities").style.display="block";
@@ -144,14 +164,59 @@ function checkInputs() {
   if(resultLoop > 5){   //Si la valeur est supérieur a 5, alors cela veut dire que la valeur vaut 6 et que les 6 cases ne sont pas cochées
     return -1;
   }
+}
 
-  //Conditions générales
+//TERMES ET CONDITIONS GÉNÉRALES ACCEPTÉES
+function checkTerms(){
   if(termsAndConditions.checked === false){
     document.getElementById("error_message_terms").style.display="block";
     return -1;
   }
   else{
     document.getElementById("error_message_terms").style.display="none";
+  }
+}
+
+function checkInputs(){
+  var retourFct = 0;
+  var i = 0;
+
+  while(i === 0){
+    if(checkFirstName() === -1){
+      retourFct = -1;
+    }
+  
+    if(checkLastName() === -1){
+      retourFct = -1;
+    }
+  
+    if(checkMailAdress() === -1){
+      retourFct = -1;
+    }
+  
+    if(checkBirthdate() === -1){
+      retourFct = -1;
+    }
+  
+    if(checkTournamentValue() === -1){
+      retourFct = -1;
+    }
+  
+    if(checkCities() === -1){
+      retourFct = -1;
+    }
+  
+    if(checkTerms() === -1){
+      retourFct = -1;
+    }
+    i++;
+  }
+  return retourFct;
+}
+
+function envoi(){
+  if(flag === true){
+    form.submit();
   }
 }
 
@@ -162,10 +227,61 @@ form.addEventListener("submit", (e) => {
   }
   else{
     e.preventDefault();
-    modalValidContainer.classList.add("show");
-    setTimeout( () => {
-      form.submit();
-  }, 6000 );  //6 secondes d'attente pour afficher le message de confirmation d'envoi du formulaire. Si
+    //modalValidContainer.classList.add("show");
+    document.getElementById("form_without_button").style.display = "none";
+    document.getElementById("validation_message").style.display = "block";
+    document.getElementById("btn_close_submit").style.display = "block";
+    submitBtn.style.display = "none";
   }
 
 })
+
+firstname.addEventListener("click", function() {
+  checkFirstName();
+});
+
+firstname.addEventListener("input", function() {
+  checkFirstName();
+});
+
+lastname.addEventListener("click", function() {
+  checkLastName();
+});
+
+lastname.addEventListener("input", function(){
+  checkLastName();
+});
+
+email.addEventListener("click", function() {
+  checkMailAdress();
+});
+
+email.addEventListener("input", function() {
+  checkMailAdress();
+});
+
+birthdate.addEventListener("click", function() {
+  checkBirthdate();
+});
+
+birthdate.addEventListener("input", function() {
+  checkBirthdate();
+});
+
+tournament.addEventListener("click", function() {
+  checkTournamentValue();
+});
+
+tournament.addEventListener("input", function() {
+  checkTournamentValue();
+});
+
+for(var i = 0; i<cities.length; i++){
+  cities[i].addEventListener("click", function() {
+    checkCities();
+  });
+}
+
+termsAndConditions.addEventListener("click", function() {
+  checkTerms();
+});
