@@ -564,7 +564,7 @@ input[data-error]::after {
   margin: 60px 0 30px;
   font-weight: bolder;
 }
-.hero-section > .btn-signup {
+.hero-section > a >.btn-signup {
   display: none;
 }
 footer {
@@ -609,10 +609,16 @@ footer {
     border-radius: 10px;
     margin-top: 40px;
   }
-  .hero-section > .btn-signup {
+
+  .hero-section a{
+    text-decoration: none;
+  }
+
+  .hero-section > a > .btn-signup {
     display: block;
     margin: 32px auto 10px;
     padding: 12px 35px;
+    outline: auto;
   }
   .copyrights {
     margin-top: 50px;
