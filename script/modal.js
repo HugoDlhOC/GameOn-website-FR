@@ -10,40 +10,11 @@ function editNav() {
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
-
 const closeForm = document.querySelectorAll(".close");
-
-
-// launch modal event
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));  //Permet d'afficher le formulaire, btn est une fonction
-
-//close modal event
-closeForm.forEach((close_btn) => close_btn.addEventListener("click", closeModal));
-
-//close final modal event
-document.getElementById("btn_close_submit").addEventListener("click", function() {
-  closeModal();
-  location.reload();
-});
-
-// launch modal form
-function launchModal() {
-  modalbg.style.display = "block";
-}
-
-//close modal form
-function closeModal(){
-  modalbg.style.display = "none";
-  location.reload();
-}
-
-//POPUP
 const submitBtn = document.getElementById("btn-submit");
 const modalValidContainer = document.getElementById("modalValid-container");
 const closeBtn = document.getElementById("modalValid-close");
-
-
-//Controle input formulaire
+//DOM Controle input formulaire
 const form = document.getElementById("form");
 const input = document.querySelectorAll("input");
 const firstname = document.getElementById("firstname");
@@ -54,21 +25,54 @@ const tournament = document.getElementById("quantity");
 const cities = document.getElementsByName("location");
 const termsAndConditions = document.getElementById("termsAndConditions");
 
+
+//launch modal event
+//Permet d'afficher le formulaire au clic du bouton s'inscrire
+modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));  //Permet d'afficher le formulaire, btn est une fonction
+
+//close modal event
+//Permet de fermer le formulaire au clic de la croix
+closeForm.forEach((close_btn) => close_btn.addEventListener("click", closeModal));
+
+//close final modal event
+//Permet de fermer le formulaire au clic sur le bouton close
+document.getElementById("btn_close_submit").addEventListener("click", function() {
+  closeModal();
+  location.reload();
+});
+
+//launch modal form
+//Fonction permettant d' afficher le formulaire, en le passant en display block
+function launchModal() {
+  modalbg.style.display = "block";
+}
+
+//close modal form
+//Fonction permettant de fermer le formulaire, en le passant en display none
+function closeModal(){
+  modalbg.style.display = "none";
+  location.reload();  //On relance la page pour que les données déja saisies soient supprimées 
+}
+
+//Fonction permettant de vérifier qu'un mail est bien saisi. 
+//Elle contrôle que l'utilisateur a bien écrit quelque chose avant l'@.
+//Elle contrôle la présence de l'@
+//Elle contrôle la présence de caractères alphabétiques après le @ 
+//La fonction TEST va retourner un boolean en fonction de la saisie
 function checkMail(mail){
   var content = /^[^ ]+@[^ ]+\.[a-z]/;
   return content.test(mail); //Test retourne boolean
 }
-
+//Fonction permettant de raccourcir le code.
+//Elle permet de faire en sorte que si une saisie est valide (par exemple le prénom), d'afficher un contenu HTML (message d'erreur) ou de le laisser caché
+//3 paramètres : élément du DOM, le nom de l'erreur, si la saisie est valide ou non
 function validInput (domElement, errorName, isValid){
 	if(isValid === false){
 		document.getElementById(errorName).style.display="block";
-    domElement.style.transition= "all 0,4s";
 		domElement.style.border = "2px red solid";
-    
 	}
 	else{
 		document.getElementById(errorName).style.display="none";
-    domElement.style.transition= "all 0,4s";
 		domElement.style.border = "2px green solid";
     
 	}
@@ -134,6 +138,7 @@ function checkTournamentValue(){
   }
 }
 //AU MOINS UNE VILLE SELECTIONNÉE
+//Méthode 1
 function checkCities(){
   const tournamentValue = tournament.value.trim();
   
@@ -158,8 +163,24 @@ function checkCities(){
   if(resultLoop > 5){   //Si la valeur est supérieur a 5, alors cela veut dire que la valeur vaut 6 et que les 6 cases ne sont pas cochées
     return -1;
   }
-}
 
+  /*
+  //Méthode 2
+  const someCheckCities = cities.some(function (city){
+    return city.checked = true;
+  });
+
+  if(tournamentValue > 0){
+    if(someCheckCities === false){
+      document.getElementById("error_message_cities").style.display="block";
+      return -1;
+    }
+    else{
+      document.getElementById("error_message_cities").style.display="none";
+    }
+  }
+  */
+}
 
 //TERMES ET CONDITIONS GÉNÉRALES ACCEPTÉES
 function checkTerms(){
@@ -172,6 +193,7 @@ function checkTerms(){
   }
 }
 
+//Cette fonction va permettre une fois que l'utilisateur aura cliqué de déterminer les erreurs, ou non, ce qui provoquera soit l'autorisation de l'envoi ou pas du formulaire à l'aide de son retour
 function checkInputs(){
   var retourFct = 0;
   var i = 0;
@@ -209,9 +231,8 @@ function checkInputs(){
   return retourFct;
 }
 
-
-
 //Controle envoi formulaire
+//On vérifie le retour de la fonction checkInputs pour afficher ou non à l'utilisateur le message de validation
 form.addEventListener("submit", (e) => {
   if(checkInputs() === -1){
     e.preventDefault(); //Le formulaire ne s'envoit pas
@@ -223,9 +244,9 @@ form.addEventListener("submit", (e) => {
     document.getElementById("btn_close_submit").style.display = "block";
     submitBtn.style.display = "none";
   }
-
 })
 
+//Ensemble d'écoutes d'évènements pour rendre le formulaire dynamique
 firstname.addEventListener("click", function() {
   checkFirstName();
 });
