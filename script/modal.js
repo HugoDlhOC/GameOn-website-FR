@@ -75,11 +75,15 @@ function checkMail(mail){
 function validInput (domElement, errorName, isValid){
 	if(isValid === false){
 		document.getElementById(errorName).style.display="block";
+    domElement.style.transition= "all 0,4s";
 		domElement.style.border = "2px red solid";
+    
 	}
 	else{
 		document.getElementById(errorName).style.display="none";
+    domElement.style.transition= "all 0,4s";
 		domElement.style.border = "2px green solid";
+    
 	}
 }
 
@@ -145,6 +149,7 @@ function checkTournamentValue(){
 //AU MOINS UNE VILLE SELECTIONNÉE
 function checkCities(){
   const tournamentValue = tournament.value.trim();
+  
   var j = 0;
   var resultLoop = 0;
 
@@ -167,6 +172,7 @@ function checkCities(){
     return -1;
   }
 }
+
 
 //TERMES ET CONDITIONS GÉNÉRALES ACCEPTÉES
 function checkTerms(){
@@ -216,12 +222,7 @@ function checkInputs(){
   return retourFct;
 }
 
-/*
-function envoi(){
-  if(flag === true){
-    form.submit();
-  }
-}*/
+
 
 //Controle envoi formulaire
 form.addEventListener("submit", (e) => {

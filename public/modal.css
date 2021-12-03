@@ -14,7 +14,6 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  background-image: url("background.png");
   font-family: var(--font-default);
   font-size: 18px;
   max-width: 1300px;
@@ -117,6 +116,22 @@ img {
     float: right;
     display: block;
     margin-top: -15px;
+  }
+
+  .topnav{
+    z-index: 2;
+  }
+
+  main .bground{
+    top: 80px;
+    border-radius: 10px;
+  }
+
+  .bground .content{
+    margin: 0%;
+    border-radius: 0px;
+    border-radius: 10px;
+    max-width: initial;
   }
 } 
 
