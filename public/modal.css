@@ -36,6 +36,12 @@ img {
 .header-logo {
     float: left;
 }
+
+.header-logo img{
+  width: auto;
+  height: auto;
+}
+
 .main-navbar {
     float: right;
     z-index: 5;
@@ -72,68 +78,6 @@ img {
 .topnav .icon {
   display: none;
 }
-
-@media screen and (max-width: 768px) {
-  .topnav{
-    margin: 7.5%;
-  }
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .topnav.responsive {position: relative;}
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .header-logo img{
-    margin-bottom: 40px;
-  }
-}
-
-
-
- @media screen and (max-width: 540px) {
-  .header-logo img{
-    width: 200px;
-  }
-  
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-    margin-top: -15px;
-  }
-
-  .topnav{
-    z-index: 2;
-  }
-
-  main .bground{
-    top: 80px;
-    border-radius: 10px;
-  }
-
-  .bground .content{
-    margin: 0%;
-    border-radius: 0px;
-    border-radius: 10px;
-    max-width: initial;
-  }
-} 
 
 main {
   font-size: 130%;
@@ -523,39 +467,6 @@ input[data-error]::after {
   font-weight: normal;
   font-size: 30px;
 }
-/*Message validation formulaire*/
-.modalValid-container{
-  /*display: none;*/
-  position: fixed;  /*Contenu prend toute la page*/
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  background-color: rgba(26, 39, 156, 0.4);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
-
-  opacity: 0;
-  pointer-events: none;
-}
-
-.modalValid-container.show{
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.modalValid{
-  background: #232323;
-  width: 600px;
-  max-width: 100%;  /*Le contenu reste dans le navigateur, pas de débordement*/
-  border-radius: 10px;
-  padding: 30px 50px;
-  text-align: center;
-}
-
 
 .copyrights {
   color: #fe142f;
@@ -564,7 +475,7 @@ input[data-error]::after {
   margin: 60px 0 30px;
   font-weight: bolder;
 }
-.hero-section > a >.btn-signup {
+.hero-section >.btn-signup {
   display: none;
 }
 footer {
@@ -572,6 +483,68 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
+
+@media screen and (max-width: 768px) {
+  .topnav{
+    margin: 7.5%;
+  }
+  .topnav a {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header-logo img{
+    margin-bottom: 40px;
+  }
+}
+
+
+
+ @media screen and (max-width: 540px) {
+  .header-logo img{
+    width: 200px;
+  }
+  
+  .topnav a {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+    margin-top: -15px;
+  }
+
+  .topnav{
+    z-index: 2;
+  }
+
+  main .bground{
+    top: 80px;
+    border-radius: 10px;
+  }
+
+  .bground .content{
+    margin: 0%;
+    border-radius: 0px;
+    border-radius: 10px;
+    max-width: initial;
+  }
+} 
 
 @media(max-width: 1024px) and (min-width: 800px){
 
@@ -610,11 +583,7 @@ footer {
     margin-top: 40px;
   }
 
-  .hero-section a{
-    text-decoration: none;
-  }
-
-  .hero-section > a > .btn-signup {
+  .hero-section > .btn-signup {
     display: block;
     margin: 32px auto 10px;
     padding: 12px 35px;

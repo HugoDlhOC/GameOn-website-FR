@@ -11,10 +11,10 @@
       rel="stylesheet"
     />
   </head>
-  <body>
+  <body id="body">
     <div class="topnav" id="myTopnav">
       <div class="header-logo">
-      <img alt="logo" src="./public/ressources/images/Logo.png" width="auto" height="auto" />
+      <img alt="logo" src="./public/ressources/images/Logo.png"/>
     </div>
     <div class="main-navbar">
       
@@ -28,7 +28,7 @@
       </a>
     </div>
     </div>
-  </div>
+
     <main>
       <div class="hero-section">
         <div class="hero-content">
@@ -45,14 +45,12 @@
           </button>
         </div>
         <div class="hero-img">
-          <img src="./public/ressources/images/bg_img.jpg" alt="img" />
+          <img src="./public/ressources/images/bg_img.jpg" alt="img"/>
         </div>
 
-        <a href="#myTopnav">
-          <button class="btn-signup modal-btn"> 
-            je m'inscris
-          </button>
-        </a>
+        <button class="btn-signup modal-btn"> 
+          je m'inscris
+        </button>
       </div>
 
       <div class="bground">
@@ -201,7 +199,7 @@
                     id="termsAndConditions"
                     checked 
                   />  <!--Check de base-->
-                  <label class="checkbox2-label" for="termsAndConditions" required> <!--REQUIRED ?-->
+                  <label class="checkbox2-label" for="termsAndConditions">
                     <span class="checkbox-icon"></span>
                     J'ai lu et accepté les conditions d'utilisation.
                   </label>
@@ -227,20 +225,10 @@
               >Close
               </button>
               </form>
-            </form>
           </div>
         </div>
       </div>
 
-      <div id="modalValid-container" class="modalValid-container">
-        <div class="modalValid">
-          <h1>Merci !</h1>
-          <p>Votre réservation a été reçue.</p>
-          <button id="modalValid-close">
-            Fermer
-          </button>
-        </div>
-      </div>
     </main>
     <footer>
       <p class="copyrights">

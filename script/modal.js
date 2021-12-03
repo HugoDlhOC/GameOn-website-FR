@@ -16,20 +16,14 @@ const closeForm = document.querySelectorAll(".close");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));  //Permet d'afficher le formulaire, btn est une fonction
-//document.querySelectorAll(".modal-btn").forEach((btn) => btn.addEventListener("click", launchModal));  //Permet d'afficher le formulaire, btn est une fonction
 
 //close modal event
 closeForm.forEach((close_btn) => close_btn.addEventListener("click", closeModal));
-//document.querySelectorAll(".close").forEach((close_btn) => close_btn.addEventListener("click", closeModal));
 
 //close final modal event
-//var flag = false;
 document.getElementById("btn_close_submit").addEventListener("click", function() {
-  //flag = true;
   closeModal();
-  //form.submit();
   location.reload();
-
 });
 
 // launch modal form
@@ -43,17 +37,10 @@ function closeModal(){
   location.reload();
 }
 
-
-
 //POPUP
 const submitBtn = document.getElementById("btn-submit");
 const modalValidContainer = document.getElementById("modalValid-container");
 const closeBtn = document.getElementById("modalValid-close");
-
-closeBtn.addEventListener("click", () => {
-  modalValidContainer.classList.remove("show");
-}); 
-
 
 
 //Controle input formulaire
@@ -231,7 +218,6 @@ form.addEventListener("submit", (e) => {
   }
   else{
     e.preventDefault();
-    //modalValidContainer.classList.add("show");
     document.getElementById("form_without_button").style.display = "none";
     document.getElementById("validation_message").style.display = "block";
     document.getElementById("btn_close_submit").style.display = "block";
