@@ -10,13 +10,13 @@ function editNav() {
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
-const closeForm = document.querySelectorAll(".close");
+const heroSection = document.querySelector(".hero-section");
+const closeForm = document.querySelector(".close"); //modif
 const submitBtn = document.getElementById("btn-submit");
-const modalValidContainer = document.getElementById("modalValid-container");
-const closeBtn = document.getElementById("modalValid-close");
+const closeBtnSubmit = document.getElementById("btn_close_submit");
+const body = document.getElementById("body");
 //DOM Controle input formulaire
 const form = document.getElementById("form");
-const input = document.querySelectorAll("input");
 const firstname = document.getElementById("firstname");
 const lastname = document.getElementById("lastname");
 const email = document.getElementById("email");
@@ -32,26 +32,48 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));  //Permet
 
 //close modal event
 //Permet de fermer le formulaire au clic de la croix
-closeForm.forEach((close_btn) => close_btn.addEventListener("click", closeModal));
+closeForm.addEventListener("click", closeModal);
 
 //close final modal event
 //Permet de fermer le formulaire au clic sur le bouton close
-document.getElementById("btn_close_submit").addEventListener("click", function() {
+closeBtnSubmit.addEventListener("click", function() {
   closeModal();
-  location.reload();
+  //location.reload();
 });
 
 //launch modal form
 //Fonction permettant d' afficher le formulaire, en le passant en display block
+
+function hiddeSectionHero(){
+  let query = window.matchMedia("(max-width: 540px)");
+
+  if(query.matches){
+    heroSection.style.display = "none";
+  }
+  else{
+    heroSection.style.display = "block";
+  }
+}
+
+function showSectionHero(){
+  heroSection.style.display = "block";
+}
+
 function launchModal() {
   modalbg.style.display = "block";
+  window.addEventListener("resize", hiddeSectionHero);
+  hiddeSectionHero();
+  //heroSection.style.display = "none";
 }
 
 //close modal form
 //Fonction permettant de fermer le formulaire, en le passant en display none
 function closeModal(){
   modalbg.style.display = "none";
-  location.reload();  //On relance la page pour que les données déja saisies soient supprimées 
+  showSectionHero();
+  window.removeEventListener("resize", hiddeSectionHero);
+  //heroSection.style.display = "block";
+  //location.reload();  //On relance la page pour que les données déja saisies soient supprimées 
 }
 
 //Fonction permettant de vérifier qu'un mail est bien saisi. 
@@ -140,8 +162,8 @@ function checkTournamentValue(){
 //AU MOINS UNE VILLE SELECTIONNÉE
 //Méthode 1
 function checkCities(){
-  const tournamentValue = tournament.value.trim();
-  
+  const citiesSelect = document.querySelectorAll(".select_city");
+  /*
   var j = 0;
   var resultLoop = 0;
 
@@ -163,23 +185,27 @@ function checkCities(){
   if(resultLoop > 5){   //Si la valeur est supérieur a 5, alors cela veut dire que la valeur vaut 6 et que les 6 cases ne sont pas cochées
     return -1;
   }
-
-  /*
+  */
+  
   //Méthode 2
-  const someCheckCities = cities.some(function (city){
-    return city.checked = true;
+  const cities = document.getElementsByName("location");
+  const someCheckCities = Array.from(cities).some(function (city){
+    return city.checked === true;
   });
 
-  if(tournamentValue > 0){
-    if(someCheckCities === false){
-      document.getElementById("error_message_cities").style.display="block";
-      return -1;
+  if(someCheckCities === false){
+    document.getElementById("error_message_cities").style.display="block";
+    for(var i = 0; i < citiesSelect.length; i++){
+      citiesSelect[i].style.border = "2px red solid";
     }
-    else{
-      document.getElementById("error_message_cities").style.display="none";
+    return -1;
+  }
+  else{
+    document.getElementById("error_message_cities").style.display="none";
+    for(var i = 0; i < citiesSelect.length; i++){
+      citiesSelect[i].style.border = "2px green solid";
     }
   }
-  */
 }
 
 //TERMES ET CONDITIONS GÉNÉRALES ACCEPTÉES
@@ -196,9 +222,7 @@ function checkTerms(){
 //Cette fonction va permettre une fois que l'utilisateur aura cliqué de déterminer les erreurs, ou non, ce qui provoquera soit l'autorisation de l'envoi ou pas du formulaire à l'aide de son retour
 function checkInputs(){
   var retourFct = 0;
-  var i = 0;
 
-  while(i === 0){
     if(checkFirstName() === -1){
       retourFct = -1;
     }
@@ -226,25 +250,24 @@ function checkInputs(){
     if(checkTerms() === -1){
       retourFct = -1;
     }
-    i++;
-  }
   return retourFct;
 }
 
 //Controle envoi formulaire
 //On vérifie le retour de la fonction checkInputs pour afficher ou non à l'utilisateur le message de validation
 form.addEventListener("submit", (e) => {
+  
   if(checkInputs() === -1){
-    e.preventDefault(); //Le formulaire ne s'envoit pas
+    e.preventDefault();
   }
   else{
     e.preventDefault();
     document.getElementById("form_without_button").style.display = "none";
     document.getElementById("validation_message").style.display = "block";
-    document.getElementById("btn_close_submit").style.display = "block";
+    closeBtnSubmit.style.display = "block";
     submitBtn.style.display = "none";
   }
-})
+});
 
 //Ensemble d'écoutes d'évènements pour rendre le formulaire dynamique
 firstname.addEventListener("click", function() {

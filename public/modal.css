@@ -543,6 +543,7 @@ footer {
     border-radius: 0px;
     border-radius: 10px;
     max-width: initial;
+    height: 100%;
   }
 } 
 
