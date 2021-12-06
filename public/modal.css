@@ -546,8 +546,8 @@ footer {
     max-width: initial;
   }
 
-  form .btn-submit{
-    bottom: 80px;  /*Pour pallier au top de 80px de bground*/ 
+  #btn-submit{
+    margin-bottom: 80px;  /*Pour pallier au top de 80px de bground*/ 
   }
 } 
 
