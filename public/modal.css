@@ -516,7 +516,6 @@ footer {
 }
 
 
-
  @media screen and (max-width: 540px) {
   .header-logo img{
     width: 200px;
@@ -546,8 +545,12 @@ footer {
     max-width: initial;
   }
 
-  #btn-submit{
+  #btn-submit, #btn_close_submit{
     margin-bottom: 80px;  /*Pour pallier au top de 80px de bground*/ 
+  }
+
+  #validation_message p{
+    padding: 100px 25px;
   }
 } 
 
