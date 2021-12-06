@@ -536,6 +536,7 @@ footer {
   main .bground{
     top: 80px;
     border-radius: 10px;
+    background-color: #232323;
   }
 
   .bground .content{
@@ -543,7 +544,10 @@ footer {
     border-radius: 0px;
     border-radius: 10px;
     max-width: initial;
-    height: 100%;
+  }
+
+  form .btn-submit{
+    bottom: 80px;  /*Pour pallier au top de 80px de bground*/ 
   }
 } 
 

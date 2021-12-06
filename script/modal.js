@@ -14,7 +14,6 @@ const heroSection = document.querySelector(".hero-section");
 const closeForm = document.querySelector(".close"); //modif
 const submitBtn = document.getElementById("btn-submit");
 const closeBtnSubmit = document.getElementById("btn_close_submit");
-const body = document.getElementById("body");
 //DOM Controle input formulaire
 const form = document.getElementById("form");
 const firstname = document.getElementById("firstname");
