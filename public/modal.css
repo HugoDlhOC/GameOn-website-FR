@@ -518,12 +518,6 @@ footer {
   .hero-content h1, .hero-text{
     padding: 20px;
   }
-
-  .hero-img img{
-    height: 100%;
-    width: 100%;
-    position: initial;
-  }
 }
 
 @media screen and (min-width: 768px) {
@@ -603,16 +597,21 @@ footer {
     width: unset;
     font-size: 1.5rem;
   }
-  .hero-img img {
+
+  .hero-img img{
+    height: 100%;
+    width: 100%;
+    position: initial;
     border-radius: 10px;
-    margin-top: 40px;
+    margin-top: 20px;
   }
 
   .hero-section > .btn-signup {
     display: block;
     margin: 32px auto 10px;
     padding: 12px 35px;
-    outline: auto;
+    outline: none;
+    border: none;
   }
   .copyrights {
     margin-top: 50px;
