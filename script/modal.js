@@ -12,6 +12,7 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const heroSection = document.querySelector(".hero-section");
 const closeForm = document.querySelector(".close"); //modif
+const closeMessValid = document.querySelector(".close_message");
 const submitBtn = document.getElementById("btn-submit");
 const closeBtnSubmit = document.getElementById("btn_close_submit");
 //DOM Controle input formulaire
@@ -23,57 +24,8 @@ const birthdate = document.getElementById("birthdate");
 const tournament = document.getElementById("quantity");
 const cities = document.getElementsByName("location");
 const termsAndConditions = document.getElementById("termsAndConditions");
-
-
-//launch modal event
-//Permet d'afficher le formulaire au clic du bouton s'inscrire
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));  //Permet d'afficher le formulaire, btn est une fonction
-
-//close modal event
-//Permet de fermer le formulaire au clic de la croix
-closeForm.addEventListener("click", closeModal);
-
-//close final modal event
-//Permet de fermer le formulaire au clic sur le bouton close
-closeBtnSubmit.addEventListener("click", function() {
-  closeModal();
-  //location.reload();
-});
-
-//launch modal form
-//Fonction permettant d' afficher le formulaire, en le passant en display block
-
-function hiddeSectionHero(){
-  let query = window.matchMedia("(max-width: 540px)");
-
-  if(query.matches){
-    heroSection.style.display = "none";
-  }
-  else{
-    heroSection.style.display = "block";
-  }
-}
-
-function showSectionHero(){
-  heroSection.style.display = "block";
-}
-
-function launchModal() {
-  modalbg.style.display = "block";
-  window.addEventListener("resize", hiddeSectionHero);
-  hiddeSectionHero();
-  //heroSection.style.display = "none";
-}
-
-//close modal form
-//Fonction permettant de fermer le formulaire, en le passant en display none
-function closeModal(){
-  modalbg.style.display = "none";
-  showSectionHero();
-  window.removeEventListener("resize", hiddeSectionHero);
-  //heroSection.style.display = "block";
-  //location.reload();  //On relance la page pour que les données déja saisies soient supprimées 
-}
+const inputs = document.querySelectorAll("#form input");
+const spans = document.querySelectorAll(".citiesData span");
 
 //Fonction permettant de vérifier qu'un mail est bien saisi. 
 //Elle contrôle que l'utilisateur a bien écrit quelque chose avant l'@.
@@ -101,93 +53,73 @@ function validInput (domElement, errorName, isValid){
 
 //----------FONCTIONS VERFIF INPUTS----------//
 //PRENOM
-function checkFirstName(){
+function isFirstNameValid(){
   const firstnameValue = firstname.value.trim();  //TRIM permet d'ignorer si des espaces sont saisis par l'utilisateur, ils ne sont pas comptés comme caractères
   if(firstnameValue === "" || firstnameValue.length < 2){
     validInput(firstname, "error_message_firstname", false);
-    return -1;
+    return false;
   }
   else{
     validInput(firstname, "error_message_firstname", true);
+    return true;
   }
 }
 
 //NOM
-function checkLastName(){
+function isLastNameValid(){
   const lastnameValue = lastname.value.trim();
   if(lastnameValue === "" || lastnameValue.length < 2){
     validInput(lastname, "error_message_lastname", false);
-    return -1;
+    return false;
   }
   else{
     validInput(lastname, "error_message_lastname", true);
+    return true;
   }
 }
 
 //MAIL
-function checkMailAdress(){
+function isMailValid(){
   const emailValue = email.value;
   if(!checkMail(emailValue)){
     validInput(email, "error_message_email", false);
-    return -1;
+    return false;
   }
   else{
     validInput(email, "error_message_email", true);
+    return true;
   }
 }
 
 //BIRTHDATE
-function checkBirthdate(){
+function isBirthdateValid(){
   const birthdateValue = birthdate.value;
   if(birthdateValue === ""){
     validInput(birthdate, "error_message_birthdate", false);
-    return -1;
+    return false;
   }
   else{
     validInput(birthdate, "error_message_birthdate", true);
+    return true;
   }
 }
 //TOURNAMENTVALUE
-function checkTournamentValue(){
+function isTournamentValueValid(){
   const tournamentValue = tournament.value.trim();
   if(tournamentValue === "" || tournamentValue < 0){
     validInput(tournament, "error_message_tournament", false);
-    return -1;
+    return false;
   }
   else{
     validInput(tournament, "error_message_tournament", true);
+    return true;
   }
 }
 //AU MOINS UNE VILLE SELECTIONNÉE
-//Méthode 1
-function checkCities(){
+function isCitiesValid(){
   const citiesSelect = document.querySelectorAll(".select_city");
-  /*
-  var j = 0;
-  var resultLoop = 0;
-
-  if(tournamentValue > 0 && j === 0){
-    for(var i = 0; i<cities.length; i++){
-      if(cities[i].checked === false){
-        document.getElementById("error_message_cities").style.display="block";
-        resultLoop ++;
-      }
-      else{
-        document.getElementById("error_message_cities").style.display="none";
-        j++;
-        resultLoop === 0;
-        break;
-      }
-    }
-  }
-
-  if(resultLoop > 5){   //Si la valeur est supérieur a 5, alors cela veut dire que la valeur vaut 6 et que les 6 cases ne sont pas cochées
-    return -1;
-  }
-  */
-  
-  //Méthode 2
   const cities = document.getElementsByName("location");
+  
   const someCheckCities = Array.from(cities).some(function (city){
     return city.checked === true;
   });
@@ -197,71 +129,71 @@ function checkCities(){
     for(var i = 0; i < citiesSelect.length; i++){
       citiesSelect[i].style.border = "2px red solid";
     }
-    return -1;
+    return false;
   }
   else{
     document.getElementById("error_message_cities").style.display="none";
     for(var i = 0; i < citiesSelect.length; i++){
       citiesSelect[i].style.border = "2px green solid";
     }
+    return true;
   }
 }
 
 //TERMES ET CONDITIONS GÉNÉRALES ACCEPTÉES
-function checkTerms(){
+function isTermsValid(){
   if(termsAndConditions.checked === false){
     document.getElementById("error_message_terms").style.display="block";
-    return -1;
+    return false;
   }
   else{
     document.getElementById("error_message_terms").style.display="none";
+    return true;
   }
 }
 
 //Cette fonction va permettre une fois que l'utilisateur aura cliqué de déterminer les erreurs, ou non, ce qui provoquera soit l'autorisation de l'envoi ou pas du formulaire à l'aide de son retour
 function checkInputs(){
-  var retourFct = 0;
+  var retourFct = true;
 
-    if(checkFirstName() === -1){
-      retourFct = -1;
+    if(isFirstNameValid() === false){
+      retourFct = false;
     }
   
-    if(checkLastName() === -1){
-      retourFct = -1;
+    if(isLastNameValid() === false){
+      retourFct = false;
     }
   
-    if(checkMailAdress() === -1){
-      retourFct = -1;
+    if(isMailValid() === false){
+      retourFct = false;
     }
   
-    if(checkBirthdate() === -1){
-      retourFct = -1;
+    if(isBirthdateValid() === false){
+      retourFct = false;
     }
   
-    if(checkTournamentValue() === -1){
-      retourFct = -1;
+    if(isTournamentValueValid() === false){
+      retourFct = false;
     }
   
-    if(checkCities() === -1){
-      retourFct = -1;
+    if(isCitiesValid() === false){
+      retourFct = false;
     }
   
-    if(checkTerms() === -1){
-      retourFct = -1;
+    if(isTermsValid() === false){
+      retourFct = false;
     }
   return retourFct;
 }
 
 //Controle envoi formulaire
 //On vérifie le retour de la fonction checkInputs pour afficher ou non à l'utilisateur le message de validation
-form.addEventListener("submit", (e) => {
-  
-  if(checkInputs() === -1){
-    e.preventDefault();
-  }
-  else{
-    e.preventDefault();
+submitBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  if(checkInputs() !== false){
     document.getElementById("form_without_button").style.display = "none";
+    closeForm.style.display = "none";
+    closeMessValid.style.display = "block";
     document.getElementById("validation_message").style.display = "block";
     closeBtnSubmit.style.display = "block";
     submitBtn.style.display = "none";
@@ -270,51 +202,54 @@ form.addEventListener("submit", (e) => {
 
 //Ensemble d'écoutes d'évènements pour rendre le formulaire dynamique
 firstname.addEventListener("click", function() {
-  checkFirstName();
+  isFirstNameValid();
 });
 
 firstname.addEventListener("input", function() {
-  checkFirstName();
+  isFirstNameValid();
 });
 
 lastname.addEventListener("click", function() {
-  checkLastName();
+  isLastNameValid();
 });
 
 lastname.addEventListener("input", function(){
-  checkLastName();
+  isLastNameValid();
 });
 
 email.addEventListener("click", function() {
-  checkMailAdress();
+  isMailValid();
 });
 
 email.addEventListener("input", function() {
-  checkMailAdress();
+  isMailValid();
 });
 
 birthdate.addEventListener("click", function() {
-  checkBirthdate();
+  isBirthdateValid();
 });
 
 birthdate.addEventListener("input", function() {
-  checkBirthdate();
+  isBirthdateValid();
 });
 
 tournament.addEventListener("click", function() {
-  checkTournamentValue();
+  isTournamentValueValid();
 });
 
 tournament.addEventListener("input", function() {
-  checkTournamentValue();
+  isTournamentValueValid();
 });
 
+cities.forEach((fct) => fct.addEventListener("click", isCitiesValid));
+
+/*
 for(var i = 0; i<cities.length; i++){
   cities[i].addEventListener("click", function() {
-    checkCities();
+    isCitiesValid();
   });
-}
+}*/
 
 termsAndConditions.addEventListener("click", function() {
-  checkTerms();
+  isTermsValid();
 });

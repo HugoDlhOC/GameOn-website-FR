@@ -17,15 +17,15 @@
       <img alt="logo" src="./public/ressources/images/Logo.png"/>
     </div>
     <div class="main-navbar">
-      
+      <a href="javascript:void(0);" class="icon" onclick="editNav()">
+        <i class="fa fa-bars"></i>
+      </a>
       <a href="#" class="active"><span>Accueil</span></a>
       <a href="#"><span>Détails de l'évènement</span></a>
       <a href="#"><span>À propos</span></a>
       <a href="#"><span>Contact</span></a>
       <a href="#"><span>Évènements passés</span></a>
-      <a href="javascript:void(0);" class="icon" onclick="editNav()">
-        <i class="fa fa-bars"></i>
-      </a>
+
     </div>
     </div>
 
@@ -56,6 +56,7 @@
       <div class="bground">
         <div class="content">
           <span class="close"></span>
+          <span class="close close_message"></span>
           <div class="modal-body">
             <div id="validation_message">
               <p>Thank you for submitting your registration details</p>
@@ -65,7 +66,6 @@
               name="reserve"
               action="index.html"
               method="get"
-              onsubmit="return validate();"
             >
               <div id="form_without_button">
                 <div
@@ -121,7 +121,7 @@
                 </div>
                 <p class="text-label">Quelles villes ?</p>
                 <div
-                  class="formData">
+                  class="formData citiesData">
                   <input
                     class="checkbox-input"
                     type="radio"
@@ -236,5 +236,6 @@
       </p>
     </footer>
     <script src="./script/modal.js"></script>
+    <script src="./script/validation.js"></script>
   </body>
 </html>
