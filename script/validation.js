@@ -33,10 +33,7 @@ closeBtnSubmit.addEventListener("click", function() {
 //launch modal form
 //Fonction permettant d' afficher le formulaire
 function launchModal() {
-    modalbg.style.display = "block";
-    window.addEventListener("resize", hiddeSectionHero);
-    hiddeSectionHero();
-  
+    modalbg.style.display = "block";  
     document.getElementById("form_without_button").style.display = "block";
     document.getElementById("validation_message").style.display = "none";
     closeBtnSubmit.style.display = "none";
@@ -47,25 +44,7 @@ function launchModal() {
 //Fonction permettant de fermer le formulaire, en le passant en display none
 function closeModal(){
     modalbg.style.display = "none";
-    showSectionHero();
-    window.removeEventListener("resize", hiddeSectionHero);
 }
 
-//Fonction qui cache une section de la page en arrière plan quand le formulaire est lancé avec un breakpoint de 540px max
-function hiddeSectionHero(){
-    let query = window.matchMedia("(max-width: 540px)");
-  
-    if(query.matches){
-      heroSection.style.display = "none";
-    }
-    else{
-      heroSection.style.display = "flex";
-    }
-}
-
-//Fonction qui affiche de nouveau la section cachée avant par hiddeSectionHero()
-function showSectionHero(){
-    heroSection.style.display = "flex";
-}
 
 
