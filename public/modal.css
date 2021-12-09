@@ -8,7 +8,6 @@
   margin: 0;
   padding: 0;
 }
-/* Landing Page */
 
 body {
   margin: 0;
@@ -34,16 +33,15 @@ img {
   margin: 3.5%;
 }
 .header-logo {
-    float: left;
+  float: left;
 }
 
-.header-logo img{
+.header-logo img {
   width: auto;
   height: auto;
 }
 
-
-.topnav a{
+.topnav a {
   float: left;
   display: block;
   color: #000000;
@@ -55,25 +53,10 @@ img {
   font-family: Roboto, sans-serif;
 }
 
-/*.topnav a:hover {
-  background-color: red;
-  color: #ffffff;
-  border-radius: 15px;
-}*/
-
-
-.fa-bars{
+.fa-bars {
   color: red;
   font-size: x-large;
 }
-
-/*
-.topnav a.active span {
-  background-color: #ff0000;
-  color: white;
-  padding: 16px 11px;
-  border-radius: 15px;
-}*/
 
 .topnav .icon {
   display: none;
@@ -89,8 +72,6 @@ main {
   margin: 1px 20px 15px;
   border-radius: 2rem;
   text-align: justify;
-
-
 }
 
 .modal-btn {
@@ -114,8 +95,6 @@ main {
   padding: 10px;
   font-family: var(--font-slab);
 }
-
-/* Modal form */
 
 .button {
   background: #fe142f;
@@ -164,10 +143,9 @@ main {
 .modal-body {
   padding: 15px 8%;
   margin: 15px auto;
-
 }
 
-.modal-body #validation_message{
+.modal-body #validation_message {
   display: none;
 }
 
@@ -210,12 +188,7 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
-/* 
-input[data-error]::after {
-    content: attr(data-error);
-    font-size: 0.4em;
-    color: red;
-} */
+
 .checkbox-label,
 .checkbox2-label {
   position: relative;
@@ -290,7 +263,7 @@ input[data-error]::after {
   cursor: pointer;
   transform: scale(0.7);
 }
-.close_message{
+.close_message {
   display: none;
 }
 
@@ -321,7 +294,7 @@ input[data-error]::after {
   cursor: pointer;
   border: 0;
 }
-#btn_close_submit{
+#btn_close_submit {
   display: none;
 }
 /* custom select styles */
@@ -371,7 +344,6 @@ input[data-error]::after {
   height: 48px;
 }
 
-
 /* Hide the items when the select box is closed: */
 .select-hide {
   display: none;
@@ -416,7 +388,7 @@ input[data-error]::after {
   position: relative;
 }
 
-.hero-text p{
+.hero-text p {
   font-size: 25px;
 }
 
@@ -429,7 +401,7 @@ input[data-error]::after {
   position: relative;
   z-index: 1;
 }
-.hero-img{
+.hero-img {
   position: relative;
 }
 
@@ -443,14 +415,13 @@ input[data-error]::after {
   right: -110px;
 }
 
-.error_message{
+.error_message {
   color: red;
   font-size: 12px;
-  /*visibility: hidden; /*Messages cachés, mais garde l'espace*/
   display: none;
 }
 
-#validation_message p{
+#validation_message p {
   padding: 260px 60px;
   text-align: center;
   font-weight: normal;
@@ -464,7 +435,7 @@ input[data-error]::after {
   margin: 60px 0 30px;
   font-weight: bolder;
 }
-.hero-section >.btn-signup {
+.hero-section > .btn-signup {
   display: none;
 }
 footer {
@@ -473,163 +444,13 @@ footer {
   margin: 0 20px;
 }
 
-@media screen and (max-width: 768px) {
-  .topnav{
-    margin: 7.5%;
-  }
-  .topnav a.disable {
-    /*background-color: white;*/
-    color: black;
-  }
-
-  .main-navbar span:hover{
-    background-color: red;
-    color: white;
-    padding: 16px 11px;
-    margin-right: -11px;
-    border-radius: 15px;
-    text-decoration: underline;
-    text-decoration-color: white;
-    text-underline-position: unset;
-  }
-
-  .topnav a .disable{
-    background-color: white;
-  }
-
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .topnav.responsive {position: relative;}
-
-  .main-navbar{
-    margin-right: auto;
-  }
-
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: right;
-    background-color: white;
-    margin-bottom: -7px;
-  }
-
-  #menu_element5{
-    margin-bottom: 0px;
-    border-radius: 0px 0px 16px 16px;
-  }
-
-  .main-navbar{
-    border-radius: 16px;
-  }
-
-  .hero-section{
-    display: block;
-  }
-
-  .hero-content h1, .hero-text{
-    padding: 20px;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .header-logo img{
-    margin-bottom: 40px;
-  }
-}
-
-@media(max-width: 540px) and (min-width: 461px){
-  .topnav.responsive a{
-    margin-left: 140px;
-  }
-}
-
-@media(max-width: 460px) and (min-width: 401px){
-  .topnav.responsive a{
-    margin-left: 80px;
-  }
-}
-
- @media screen and (max-width: 540px) {
-  .header-logo img{
-    width: 200px;
-  }
-  
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-
-  .main-navbar .active{
-    padding-top: 60px;
-  }
-
-  .topnav{
-    z-index: 5;
-  }
-
-
-
-  main .bground{
-    top: 80px;
-    border-radius: 10px;
-    background-color: #232323;
-    position: fixed;
-    z-index: 2;
-  }
-
-  .bground .content{
-    margin: 0%;
-    border-radius: 0px;
-    border-radius: 10px;
-    max-width: initial;
-  }
-
-  #btn-submit, #btn_close_submit{
-    margin-bottom: 80px;  /*Pour pallier au top de 80px de bground*/ 
-  }
-
-  #validation_message p{
-    padding: 100px 25px;
-  }
-} 
-
-@media screen and (min-width: 769px) {
-  .topnav a:hover {
-    background-color: red;
-    color: #ffffff;
-    border-radius: 15px;
-    text-decoration: underline;
-    text-decoration-color: white;
-    text-underline-position: unset;
-  }
-
-  
-  .topnav a.active {
-    background-color: red;
-    color: #ffffff;
-    border-radius: 15px;
-    text-decoration: underline;
-    text-decoration-color: white;
-    text-underline-position: under;
-  }
-}
-
-@media(max-width: 1024px) and (min-width: 800px){
-
-  .hero-headline{
+@media (max-width: 1024px) and (min-width: 800px) {
+  .hero-headline {
     font-size: 5rem;
   }
 }
 
 @media screen and (max-width: 800px) {
-  
   .hero-section {
     display: block;
     box-shadow: unset;
@@ -655,7 +476,7 @@ footer {
     font-size: 1.5rem;
   }
 
-  .hero-img img{
+  .hero-img img {
     height: 100%;
     width: 100%;
     position: initial;
@@ -673,6 +494,155 @@ footer {
   .copyrights {
     margin-top: 50px;
     text-align: center;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .topnav a:hover {
+    background-color: red;
+    color: #ffffff;
+    border-radius: 15px;
+    text-decoration: underline;
+    text-decoration-color: white;
+    text-underline-position: unset;
+  }
+
+  .topnav a.active {
+    background-color: red;
+    color: #ffffff;
+    border-radius: 15px;
+    text-decoration: underline;
+    text-decoration-color: white;
+    text-underline-position: under;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header-logo img {
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .topnav.responsive {
+    position: relative;
+  }
+
+  .topnav {
+    margin: 7.5%;
+  }
+
+  .main-navbar span:hover {
+    background-color: red;
+    color: white;
+    padding: 16px 11px;
+    margin-right: -11px;
+    border-radius: 15px;
+    text-decoration: underline;
+    text-decoration-color: white;
+    text-underline-position: unset;
+  }
+
+  .topnav a .disable {
+    background-color: white;
+    color: black;
+  }
+
+  .topnav a {
+    display: none;
+  }
+
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+
+  .main-navbar {
+    margin-right: auto;
+  }
+
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: right;
+    background-color: white;
+    margin-bottom: -7px;
+  }
+
+  #menu_element5 {
+    margin-bottom: 0px;
+    border-radius: 0px 0px 16px 16px;
+  }
+
+  .main-navbar {
+    border-radius: 16px;
+  }
+
+  .hero-section {
+    display: block;
+  }
+
+  .hero-content h1,
+  .hero-text {
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .header-logo img {
+    width: 200px;
+  }
+
+  .topnav a {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+
+  .main-navbar .active {
+    padding-top: 60px;
+  }
+
+  .topnav {
+    z-index: 5;
+  }
+
+  main .bground {
+    top: 80px;
+    border-radius: 10px;
+    background-color: #232323;
+    position: fixed;
+    z-index: 2;
+  }
+
+  .bground .content {
+    margin: 0%;
+    border-radius: 0px;
+    border-radius: 10px;
+    max-width: initial;
+  }
+
+  #btn-submit,
+  #btn_close_submit {
+    margin-bottom: 80px; /*Pour pallier au top de 80px de bground*/
+  }
+
+  #validation_message p {
+    padding: 100px 25px;
+  }
+}
+
+@media (max-width: 540px) and (min-width: 461px) {
+  .topnav.responsive a {
+    margin-left: 140px;
+  }
+}
+
+@media (max-width: 460px) and (min-width: 401px) {
+  .topnav.responsive a {
+    margin-left: 80px;
   }
 }
 

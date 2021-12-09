@@ -5,7 +5,10 @@
     <title>Reservation</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="./public/modal.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <link
       href="https://fonts.googleapis.com/css?family=DM+Sans"
       rel="stylesheet"
@@ -14,44 +17,43 @@
   <body id="body">
     <div class="topnav" id="myTopnav">
       <div class="header-logo">
-      <img alt="logo" src="./public/ressources/images/Logo.png"/>
-    </div>
-    <div class="main-navbar">
-      <a href="javascript:void(0);" class="icon" onclick="editNav()">
-        <i class="fa fa-bars"></i>
-      </a>
-      <!--<div></div>-->
-      <a href="#" class="menu_element active"><span>Accueil</span></a>
-      <a href="#" class="menu_element disable"><span>Détails de l'évènement</span></a>
-      <a href="#" class="menu_element disable"><span>À propos</span></a>
-      <a href="#" class="menu_element disable"><span>Contact</span></a>
-      <a href="#" id="menu_element5" class="menu_element disable"><span>Évènements passés</span></a>
-
-    </div>
+        <img alt="logo" src="./public/ressources/images/Logo.png" />
+      </div>
+      <div class="main-navbar">
+        <a href="#" id="icon_open_menu" class="icon">
+          <i class="fa fa-bars"></i>
+        </a>
+        <!--<div></div>-->
+        <a href="#" class="menu_element active"><span>Accueil</span></a>
+        <a href="#" class="menu_element disable"
+          ><span>Détails de l'évènement</span></a
+        >
+        <a href="#" class="menu_element disable"><span>À propos</span></a>
+        <a href="#" class="menu_element disable"><span>Contact</span></a>
+        <a href="#" id="menu_element5" class="menu_element disable"
+          ><span>Évènements passés</span></a
+        >
+      </div>
     </div>
 
     <main>
       <div class="hero-section">
         <div class="hero-content">
           <h1 class="hero-headline">
-            Marathon national<br>
+            Marathon national<br />
             de jeux vidéos
           </h1>
           <p class="hero-text">
-            Vous aimez jouer ? Notre prochain évènement gaming est ouvert
-            aux réservations... Places limitées !
+            Vous aimez jouer ? Notre prochain évènement gaming est ouvert aux
+            réservations... Places limitées !
           </p>
-          <button class="btn btn-signup modal-btn">
-            je m'inscris
-          </button>
+          <button class="btn btn-signup modal-btn">je m'inscris</button>
         </div>
         <div class="hero-img">
-          <img src="./public/ressources/images/bg_img.jpg" alt="img"/>
+          <img src="./public/ressources/images/bg_img.jpg" alt="img" />
         </div>
 
-        <button class="btn-signup modal-btn"> 
-          je m'inscris
-        </button>
+        <button class="btn-signup modal-btn">je m'inscris</button>
       </div>
 
       <div class="bground">
@@ -62,67 +64,77 @@
             <div id="validation_message">
               <p>Thank you for submitting your registration details</p>
             </div>
-            <form
-              id="form"
-              name="reserve"
-              action="index.html"
-              method="get"
-            >
+            <form id="form" name="reserve" action="index.html" method="get">
               <div id="form_without_button">
-                <div
-                  class="formData">
-                  <label for="firstname">Prénom</label><br>
+                <div class="formData">
+                  <label for="firstname">Prénom</label><br />
                   <input
                     class="text-control"
                     type="text"
                     id="firstname"
                     name="first"
                     minlength="2"
-                  /><br>
-                  <p id="error_message_firstname" class="error_message">Veuillez entrer 2 caractères ou plus pour le champs du prénom.</p>
+                  /><br />
+                  <p id="error_message_firstname" class="error_message">
+                    Veuillez entrer 2 caractères ou plus pour le champs du
+                    prénom.
+                  </p>
                 </div>
-                <div
-                  class="formData">
-                  <label for="lastname">Nom</label><br>
+                <div class="formData">
+                  <label for="lastname">Nom</label><br />
                   <input
                     class="text-control"
                     type="text"
                     id="lastname"
                     name="last"
-                  /><br>
-                  <p id="error_message_lastname" class="error_message">Veuillez entrer 2 caractères ou plus pour le champs du nom.</p>
+                  /><br />
+                  <p id="error_message_lastname" class="error_message">
+                    Veuillez entrer 2 caractères ou plus pour le champs du nom.
+                  </p>
                 </div>
-                <div
-                  class="formData">
-                  <label for="email">E-mail</label><br>
+                <div class="formData">
+                  <label for="email">E-mail</label><br />
                   <input
                     class="text-control"
                     type="email"
                     id="email"
                     name="email"
-                  /><br>
-                  <p id="error_message_email" class="error_message">Veuillez saisir une adresse mail valide.</p>
+                  /><br />
+                  <p id="error_message_email" class="error_message">
+                    Veuillez saisir une adresse mail valide.
+                  </p>
                 </div>
-                <div
-                  class="formData">
-                  <label for="birthdate">Date de naissance</label><br>
+                <div class="formData">
+                  <label for="birthdate">Date de naissance</label><br />
                   <input
                     class="text-control"
                     type="date"
                     id="birthdate"
                     name="birthdate"
-                  /><br>
-                  <p id="error_message_birthdate" class="error_message">Veuillez saisir votre date de naissance.</p>
+                  /><br />
+                  <p id="error_message_birthdate" class="error_message">
+                    Veuillez saisir votre date de naissance.
+                  </p>
                 </div>
-                <div
-                  class="formData">
-                  <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-                  <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
-                  <p id="error_message_tournament" class="error_message">Veuillez inscrire une valeur.</p>
+                <div class="formData">
+                  <label for="quantity"
+                    >À combien de tournois GameOn avez-vous déjà participé
+                    ?</label
+                  ><br />
+                  <input
+                    type="number"
+                    class="text-control"
+                    id="quantity"
+                    name="quantity"
+                    min="0"
+                    max="99"
+                  />
+                  <p id="error_message_tournament" class="error_message">
+                    Veuillez inscrire une valeur.
+                  </p>
                 </div>
                 <p class="text-label">Quelles villes ?</p>
-                <div
-                  class="formData citiesData">
+                <div class="formData citiesData">
                   <input
                     class="checkbox-input"
                     type="radio"
@@ -189,29 +201,37 @@
                     <span class="checkbox-icon select_city"></span>
                     Portland</label
                   >
-                  <p id="error_message_cities" class="error_message">Veuillez sélectionner au moins une ville.</p>
+                  <p id="error_message_cities" class="error_message">
+                    Veuillez sélectionner au moins une ville.
+                  </p>
                 </div>
 
-                <div
-                  class="formData">
+                <div class="formData">
                   <input
                     class="checkbox-input"
                     type="checkbox"
                     id="termsAndConditions"
-                    checked 
-                  />  <!--Check de base-->
+                    checked
+                  />
+                  <!--Check de base-->
                   <label class="checkbox2-label" for="termsAndConditions">
                     <span class="checkbox-icon"></span>
                     J'ai lu et accepté les conditions d'utilisation.
                   </label>
-                  <p id="error_message_terms" class="error_message">Veuillez accepter les conditions d'utilisation.</p>
+                  <p id="error_message_terms" class="error_message">
+                    Veuillez accepter les conditions d'utilisation.
+                  </p>
                   <!--<br>-->
-                  <input class="checkbox-input" type="checkbox" id="checkbox2" />
+                  <input
+                    class="checkbox-input"
+                    type="checkbox"
+                    id="checkbox2"
+                  />
                   <label class="checkbox2-label" for="checkbox2">
                     <span class="checkbox-icon"></span>
                     Je souhaite être prévenu des prochains évènements.
                   </label>
-                  <br>
+                  <br />
                 </div>
               </div>
               <input
@@ -220,21 +240,14 @@
                 class="btn"
                 value="C'est parti"
               />
-              <button
-                id="btn_close_submit"
-                class="btn"
-              >Close
-              </button>
-              </form>
+              <button id="btn_close_submit" class="btn">Close</button>
+            </form>
           </div>
         </div>
       </div>
-
     </main>
     <footer>
-      <p class="copyrights">
-        Copyright 2014 - 2020, GameOn Inc.
-      </p>
+      <p class="copyrights">Copyright 2014 - 2020, GameOn Inc.</p>
     </footer>
     <script src="./script/modal.js"></script>
     <script src="./script/validation.js"></script>
