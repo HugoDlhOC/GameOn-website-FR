@@ -27,11 +27,11 @@ const termsAndConditions = document.getElementById("termsAndConditions");
 const inputs = document.querySelectorAll("#form input");
 const spans = document.querySelectorAll(".citiesData span");
 
-//Fonction permettant de vérifier qu'un mail est bien saisi. 
-//Elle contrôle que l'utilisateur a bien écrit quelque chose avant l'@.
-//Elle contrôle la présence de l'@
-//Elle contrôle la présence de caractères alphabétiques après le @ 
-//La fonction TEST va retourner un boolean en fonction de la saisie
+/*Fonction permettant de vérifier qu'un mail est bien saisi. 
+Elle contrôle que l'utilisateur a bien écrit quelque chose avant l'@.
+Elle contrôle la présence de l'@
+Elle contrôle la présence de caractères alphabétiques après le @ 
+La fonction TEST va retourner un boolean en fonction de la saisie*/
 function checkMail(mail){
   var content = /^[^ ]+@[^ ]+\.[a-z]/;
   return content.test(mail); //Test retourne boolean
@@ -47,11 +47,10 @@ function validInput (domElement, errorName, isValid){
 	else{
 		document.getElementById(errorName).style.display="none";
 		domElement.style.border = "2px green solid";
-    
 	}
 }
 
-//----------FONCTIONS VERFIF INPUTS----------//
+//----------FONCTIONS VERIF INPUTS----------//
 //PRENOM
 function isFirstNameValid(){
   const firstnameValue = firstname.value.trim();  //TRIM permet d'ignorer si des espaces sont saisis par l'utilisateur, ils ne sont pas comptés comme caractères
