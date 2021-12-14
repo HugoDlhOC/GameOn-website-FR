@@ -358,6 +358,7 @@ input {
   font-weight: normal;
   font-size: 16px;
 }
+/*Passage en display flex pour compatibilité Firefox/Chrome*/
 .hero-section {
   border-radius: 10px;
   overflow: hidden;
@@ -378,13 +379,13 @@ input {
   white-space: nowrap;
   position: relative;
   padding: 50px;
-  z-index: 1;
+  z-index: 1; /*L'élément passe au dessus l'image*/
 }
 .hero-text {
-  width: 45%;
+  width: 45%; /*Le texte ne prend pas toute la place*/
   font-weight: normal;
   padding: 50px;
-  z-index: 1;
+  z-index: 1; /*L'élément passe au dessus l'image*/
   position: relative;
 }
 
@@ -612,9 +613,9 @@ footer {
   main .bground {
     top: 80px;
     border-radius: 10px;
-    background-color: #232323;
+    background-color: #232323;  /*Le formulaire occupe toute la partie de la page en version mobile*/
     position: fixed;
-    z-index: 2;
+    z-index: 2; /*Le formulaire est en avant pour le scroll sur mobile*/
   }
 
   .bground .content {
