@@ -1,5 +1,10 @@
-# Projet GameOn
-1. Forkez ce repo ;
-2. Il est conseillé d'utiliser VisualStudio Code et vous pouvez utiliser Docker, mais ce n'est pas obligatoire ;
-3. Il n'y a aucune dépendance ;
-4. Vous ne devez utiliser que du CSS personnalisé et du JavaScript pur, sans jQuery, Bootstrap ou autre librairie.
+# GameOn
+Une entreprise fictive appelée GameOn, spécialisée dans les conférences et concours de jeux, souhaite renouveler sa page d’accueil qui contient un formulaire d’inscription. Grâce au JavaScript, j’ai pu développer le formulaire attendu sur des maquettes fournies, et en respectant des issues GitHub fournis. Dans les issues, nous pouvons retrouver la gestion d’un message de validation quand l’envoi est réussi, la gestion d’erreur de champs, pouvoir fermer la modale…
+
+## Technologies
+- HTML5
+- CSS3
+- JavaScript Vanilla
+
+## Authors
+Hugo DELAHAYE
